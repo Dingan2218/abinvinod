@@ -434,10 +434,8 @@ body::before {
 }
 
 .hero-scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 40px auto 0 auto;
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
