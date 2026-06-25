@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorX = 0, cursorY = 0;
     let lastX = 0, lastY = 0;
 
-    // Vector SVG flower designs for clean premium aesthetic
-    const flowerSvgs = [
-      `<svg viewBox="0 0 100 100" style="width: 18px; height: 18px; fill: #ffb7c5; display: block;"><circle cx="50" cy="25" r="20"/><circle cx="25" cy="50" r="20"/><circle cx="75" cy="50" r="20"/><circle cx="50" cy="75" r="20"/><circle cx="50" cy="50" r="18" fill="#ffd15c"/></svg>`,
-      `<svg viewBox="0 0 100 100" style="width: 18px; height: 18px; fill: #ff9ebb; display: block;"><path d="M50 50 C50 30 35 15 35 25 C35 35 45 45 50 50 Z"/><path d="M50 50 C30 50 15 35 25 35 C35 35 45 45 50 50 Z"/><path d="M50 50 C50 70 65 85 65 75 C65 65 55 55 50 50 Z"/><path d="M50 50 C70 50 85 65 75 65 C65 65 55 55 50 50 Z"/><circle cx="50" cy="50" r="10" fill="#fff5eb"/></svg>`,
-      `<svg viewBox="0 0 100 100" style="width: 18px; height: 18px; fill: #fecdd3; display: block;"><circle cx="50" cy="50" r="12" fill="#fda4af"/><circle cx="50" cy="20" r="12"/><circle cx="50" cy="80" r="12"/><circle cx="20" cy="50" r="12"/><circle cx="80" cy="50" r="12"/><circle cx="29" cy="29" r="12"/><circle cx="71" cy="71" r="12"/><circle cx="29" cy="71" r="12"/><circle cx="71" cy="29" r="12"/></svg>`
+    // Realistic transparent flower photography assets
+    const flowerImages = [
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Extracted_pink_rose.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Daisy.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Daisy_from_below.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
     ];
 
     window.addEventListener('mousemove', (e) => {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function spawnTrailFlower(x, y) {
       const flower = document.createElement('div');
       flower.className = 'flower-trail-particle';
-      flower.innerHTML = flowerSvgs[Math.floor(Math.random() * flowerSvgs.length)];
+      flower.innerHTML = flowerImages[Math.floor(Math.random() * flowerImages.length)];
       flower.style.left = `${x}px`;
       flower.style.top = `${y}px`;
       
@@ -154,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ======= POOKIE VIBE TOGGLE (SPARKLES & HEARTS EFFECT) =======
   const vibeToggle = document.getElementById('vibe-toggle');
   if (vibeToggle) {
-    const flowerSvgs = [
-      `<svg viewBox="0 0 100 100" style="width: 24px; height: 24px; fill: #ffb7c5; display: block;"><circle cx="50" cy="25" r="20"/><circle cx="25" cy="50" r="20"/><circle cx="75" cy="50" r="20"/><circle cx="50" cy="75" r="20"/><circle cx="50" cy="50" r="18" fill="#ffd15c"/></svg>`,
-      `<svg viewBox="0 0 100 100" style="width: 24px; height: 24px; fill: #ff9ebb; display: block;"><path d="M50 50 C50 30 35 15 35 25 C35 35 45 45 50 50 Z"/><path d="M50 50 C30 50 15 35 25 35 C35 35 45 45 50 50 Z"/><path d="M50 50 C50 70 65 85 65 75 C65 65 55 55 50 50 Z"/><path d="M50 50 C70 50 85 65 75 65 C65 65 55 55 50 50 Z"/><circle cx="50" cy="50" r="10" fill="#fff5eb"/></svg>`,
-      `<svg viewBox="0 0 100 100" style="width: 24px; height: 24px; fill: #fecdd3; display: block;"><circle cx="50" cy="50" r="12" fill="#fda4af"/><circle cx="50" cy="20" r="12"/><circle cx="50" cy="80" r="12"/><circle cx="20" cy="50" r="12"/><circle cx="80" cy="50" r="12"/><circle cx="29" cy="29" r="12"/><circle cx="71" cy="71" r="12"/><circle cx="29" cy="71" r="12"/><circle cx="71" cy="29" r="12"/></svg>`
+    const flowerImages = [
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Extracted_pink_rose.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Daisy.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
+      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Daisy_from_below.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
     ];
 
     vibeToggle.addEventListener('click', (e) => {
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createParticle(x, y) {
       const particle = document.createElement('div');
       particle.className = 'sparkle-particle';
-      particle.innerHTML = flowerSvgs[Math.floor(Math.random() * flowerSvgs.length)];
+      particle.innerHTML = flowerImages[Math.floor(Math.random() * flowerImages.length)];
       
       // Calculate random offsets for spray effect
       const offsetX = (Math.random() - 0.5) * 150;
