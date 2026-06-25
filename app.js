@@ -17,11 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorX = 0, cursorY = 0;
     let lastX = 0, lastY = 0;
 
-    // Realistic transparent flower photography assets
-    const flowerImages = [
-      `<img src="${basePath}rose.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
-      `<img src="${basePath}daisy1.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
-      `<img src="${basePath}daisy2.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
+    // Cute multi-colored vector flower illustrations
+    const flowerIllustrations = [
+      // Sakura / Cherry Blossom Illustration (Soft pinks)
+      `<svg viewBox="0 0 100 100" style="width: 22px; height: 22px; display: block;"><path d="M50,50 Q35,20 50,5 Q65,20 50,50 Z" fill="#ffb7c5" /><path d="M50,50 Q20,35 5,50 Q20,65 50,50 Z" fill="#ffa5ba" /><path d="M50,50 Q65,80 50,95 Q35,80 50,50 Z" fill="#ffb7c5" /><path d="M50,50 Q80,65 95,50 Q80,35 50,50 Z" fill="#ffa5ba" /><circle cx="50" cy="50" r="14" fill="#fff" opacity="0.3"/><circle cx="50" cy="50" r="8" fill="#ffd15c"/></svg>`,
+      // Daisy / Sunflower Cartoon Illustration (Warm yellows)
+      `<svg viewBox="0 0 100 100" style="width: 22px; height: 22px; display: block;"><g fill="#ffe082"><circle cx="50" cy="20" r="15"/><circle cx="50" cy="80" r="15"/><circle cx="20" cy="50" r="15"/><circle cx="80" cy="50" r="15"/><circle cx="29" cy="29" r="15"/><circle cx="71" cy="71" r="15"/><circle cx="29" cy="71" r="15"/><circle cx="71" cy="29" r="15"/></g><circle cx="50" cy="50" r="22" fill="#ffb300"/><circle cx="50" cy="50" r="15" fill="#f57c00"/></svg>`,
+      // Cute Tulip Illustration (Pastel red/pink)
+      `<svg viewBox="0 0 100 100" style="width: 22px; height: 22px; display: block;"><path d="M30,70 C30,40 40,30 50,30 C60,30 70,40 70,70 C70,85 30,85 30,70 Z" fill="#ff8a80"/><path d="M40,70 C40,45 45,35 50,35 C55,35 60,45 60,70 C60,80 40,80 40,70 Z" fill="#ff5252"/><path d="M50,70 C50,50 50,40 50,40 C50,40 50,50 50,70 Z" stroke="#d32f2f" stroke-width="2"/><path d="M20,60 C35,60 45,45 50,30 C45,45 30,50 20,60 Z" fill="#ff8a80"/><path d="M80,60 C65,60 55,45 50,30 C55,45 70,50 80,60 Z" fill="#ff8a80"/></svg>`
     ];
 
     window.addEventListener('mousemove', (e) => {
@@ -42,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function spawnTrailFlower(x, y) {
       const flower = document.createElement('div');
       flower.className = 'flower-trail-particle';
-      flower.innerHTML = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+      flower.innerHTML = flowerIllustrations[Math.floor(Math.random() * flowerIllustrations.length)];
       flower.style.left = `${x}px`;
       flower.style.top = `${y}px`;
       
@@ -158,10 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ======= POOKIE VIBE TOGGLE (SPARKLES & HEARTS EFFECT) =======
   const vibeToggle = document.getElementById('vibe-toggle');
   if (vibeToggle) {
-    const flowerImages = [
-      `<img src="${basePath}rose.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
-      `<img src="${basePath}daisy1.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
-      `<img src="${basePath}daisy2.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
+    const flowerIllustrations = [
+      // Sakura / Cherry Blossom Illustration (Soft pinks)
+      `<svg viewBox="0 0 100 100" style="width: 28px; height: 28px; display: block;"><path d="M50,50 Q35,20 50,5 Q65,20 50,50 Z" fill="#ffb7c5" /><path d="M50,50 Q20,35 5,50 Q20,65 50,50 Z" fill="#ffa5ba" /><path d="M50,50 Q65,80 50,95 Q35,80 50,50 Z" fill="#ffb7c5" /><path d="M50,50 Q80,65 95,50 Q80,35 50,50 Z" fill="#ffa5ba" /><circle cx="50" cy="50" r="14" fill="#fff" opacity="0.3"/><circle cx="50" cy="50" r="8" fill="#ffd15c"/></svg>`,
+      // Daisy / Sunflower Cartoon Illustration (Warm yellows)
+      `<svg viewBox="0 0 100 100" style="width: 28px; height: 28px; display: block;"><g fill="#ffe082"><circle cx="50" cy="20" r="15"/><circle cx="50" cy="80" r="15"/><circle cx="20" cy="50" r="15"/><circle cx="80" cy="50" r="15"/><circle cx="29" cy="29" r="15"/><circle cx="71" cy="71" r="15"/><circle cx="29" cy="71" r="15"/><circle cx="71" cy="29" r="15"/></g><circle cx="50" cy="50" r="22" fill="#ffb300"/><circle cx="50" cy="50" r="15" fill="#f57c00"/></svg>`,
+      // Cute Tulip Illustration (Pastel red/pink)
+      `<svg viewBox="0 0 100 100" style="width: 28px; height: 28px; display: block;"><path d="M30,70 C30,40 40,30 50,30 C60,30 70,40 70,70 C70,85 30,85 30,70 Z" fill="#ff8a80"/><path d="M40,70 C40,45 45,35 50,35 C55,35 60,45 60,70 C60,80 40,80 40,70 Z" fill="#ff5252"/><path d="M50,70 C50,50 50,40 50,40 C50,40 50,50 50,70 Z" stroke="#d32f2f" stroke-width="2"/><path d="M20,60 C35,60 45,45 50,30 C45,45 30,50 20,60 Z" fill="#ff8a80"/><path d="M80,60 C65,60 55,45 50,30 C55,45 70,50 80,60 Z" fill="#ff8a80"/></svg>`
     ];
 
     vibeToggle.addEventListener('click', (e) => {
@@ -178,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createParticle(x, y) {
       const particle = document.createElement('div');
       particle.className = 'sparkle-particle';
-      particle.innerHTML = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+      particle.innerHTML = flowerIllustrations[Math.floor(Math.random() * flowerIllustrations.length)];
       
       // Calculate random offsets for spray effect
       const offsetX = (Math.random() - 0.5) * 150;
