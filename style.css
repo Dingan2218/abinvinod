@@ -1482,3 +1482,96 @@ body::before {
   margin-right: auto;
   font-weight: 300;
 }
+
+/* ====================================================================
+   POOKIE STICKERS, VIBE TOGGLE, AND SPARKLES
+   ==================================================================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vibe-toggle {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(255, 158, 187, 0.1);
+}
+
+.vibe-toggle:hover {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: var(--shadow-neon);
+}
+
+.pookie-stickers {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.sticker-badge {
+  background: #fff;
+  border: 1.5px solid var(--border-glass-active);
+  color: var(--text-primary);
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 158, 187, 0.05);
+  transition: var(--transition-smooth);
+  animation: sticker-float 4s infinite alternate ease-in-out;
+}
+
+.sticker-badge:nth-child(even) {
+  animation-delay: 1.5s;
+}
+
+.sticker-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--shadow-premium);
+  background: var(--bg-dark-accent);
+}
+
+@keyframes sticker-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Floating sparkle particles */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  font-size: 1.5rem;
+  animation: fall-fade 1.8s linear forwards;
+}
+
+@keyframes fall-fade {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-10px) rotate(15deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(250px) rotate(180deg) scale(0.6);
+    opacity: 0;
+  }
+}
+

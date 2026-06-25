@@ -118,4 +118,45 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // ======= POOKIE VIBE TOGGLE (SPARKLES & HEARTS EFFECT) =======
+  const vibeToggle = document.getElementById('vibe-toggle');
+  if (vibeToggle) {
+    const emojis = ['✨', '💖', '🌸', '🧸', '🌟', '🧁', '🍦', '🩰'];
+    vibeToggle.addEventListener('click', (e) => {
+      // Create 15 cluster particles
+      const rect = vibeToggle.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 15; i++) {
+        createParticle(originX, originY);
+      }
+    });
+
+    function createParticle(x, y) {
+      const particle = document.createElement('div');
+      particle.className = 'sparkle-particle';
+      particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      
+      // Calculate random offsets for spray effect
+      const offsetX = (Math.random() - 0.5) * 150;
+      const offsetY = (Math.random() - 0.5) * 50;
+      
+      particle.style.left = `${x + offsetX}px`;
+      particle.style.top = `${y + offsetY}px`;
+      
+      // Random animation variations
+      particle.style.animationDelay = `${Math.random() * 0.2}s`;
+      particle.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+      
+      document.body.appendChild(particle);
+      
+      // Remove element after animation completes
+      setTimeout(() => {
+        particle.remove();
+      }, 2000);
+    }
+  }
 });
+
