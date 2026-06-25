@@ -56,9 +56,21 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(255, 158, 187, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(253, 164, 189, 0.04) 0%, transparent 40%);
+  background-image: url('assets/chinese_anime_garden.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 251, 249, 0.45); /* Soft dreamy cream tint to preserve high text readability */
+  z-index: -3;
+  pointer-events: none;
 }
 
 /* Custom scrollbar in pink */
