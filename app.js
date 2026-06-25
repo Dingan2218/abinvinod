@@ -4,6 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Detect if page is located in the blog directory to adjust relative path
+  const isBlog = window.location.pathname.includes('/blog/') || window.location.href.includes('/blog/');
+  const basePath = isBlog ? '../assets/' : './assets/';
+
   // ======= CUSTOM CURSOR =======
   const cursor = document.getElementById('custom-cursor');
   const cursorDot = document.getElementById('custom-cursor-dot');
@@ -15,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Realistic transparent flower photography assets
     const flowerImages = [
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Extracted_pink_rose.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Daisy.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Daisy_from_below.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
+      `<img src="${basePath}rose.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
+      `<img src="${basePath}daisy1.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
+      `<img src="${basePath}daisy2.png" style="width: 22px; height: 22px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
     ];
 
     window.addEventListener('mousemove', (e) => {
@@ -155,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const vibeToggle = document.getElementById('vibe-toggle');
   if (vibeToggle) {
     const flowerImages = [
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Extracted_pink_rose.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Daisy.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
-      `<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Daisy_from_below.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
+      `<img src="${basePath}rose.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="rose">`,
+      `<img src="${basePath}daisy1.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`,
+      `<img src="${basePath}daisy2.png" style="width: 28px; height: 28px; object-fit: contain; pointer-events: none; display: block;" alt="daisy">`
     ];
 
     vibeToggle.addEventListener('click', (e) => {
