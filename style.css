@@ -1,39 +1,39 @@
 /* ====================================================================
    Abin Vinod — Best Digital Marketer & SEO Expert in Kerala
-   Complete Premium Design System & Stylesheet (Awwwards-Inspired)
+   Complete Premium Design System & Stylesheet (Simple & Pookie Vibe)
    ==================================================================== */
 
-/* Import Outfit Font alongside Syne and Space Grotesk */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* Import Cute Rounded Fonts Quicksand & Fredoka */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-/* Root Variables - 60:30:10 Design Rule (Titanium & Ice Cyan) */
+/* Root Variables - Soft Cream & Strawberry Vibe */
 :root {
-  /* 60% Dominant: Sleek Dark Metallic Charcoal */
-  --bg-dark: #07080b;      
-  --bg-dark-accent: #0b0c10;
+  /* Cute Backgrounds */
+  --bg-dark: #fffbf9;      
+  --bg-dark-accent: #fff5f0;
   
-  /* 30% Secondary: Structural slate glass, borders, and cool typography */
-  --bg-glass: rgba(13, 16, 23, 0.55);
-  --bg-glass-hover: rgba(20, 25, 36, 0.75);
-  --border-glass: rgba(255, 255, 255, 0.04);
-  --border-glass-active: rgba(255, 255, 255, 0.1);
-  --text-primary: #f8fafc;   /* Pure Titanium White */
-  --text-secondary: #94a3b8; /* Muted Steel Gray */
-  --text-muted: #475569;
-  --font-heading: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  /* Pookie Glassmorphism */
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-glass-hover: #ffffff;
+  --border-glass: rgba(255, 183, 197, 0.25);
+  --border-glass-active: rgba(255, 183, 197, 0.55);
+  --text-primary: #3d3532;   
+  --text-secondary: #70625d; 
+  --text-muted: #a39590;
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
   --font-mono: 'Space Grotesk', sans-serif;
-  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy cute transitions */
   --transition-fast: all 0.25s ease;
   
-  /* 10% Accent: Vivid Ice Cyan (used strictly for CTA, focus, and micro-details) */
-  --accent: #00f2fe;         
-  --accent-rose: #38bdf8;    
-  --accent-cyan: #00f2fe;    
-  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #38bdf8 100%);
-  --accent-gradient-hover: linear-gradient(135deg, #33f8ff 0%, #7dd3fc 100%);
-  --shadow-premium: 0 25px 60px rgba(0, 0, 0, 0.7);
-  --shadow-neon: 0 0 30px rgba(0, 242, 254, 0.12);
+  /* Cute Accents */
+  --accent: #ff9ebb;         
+  --accent-rose: #fda4af;    
+  --accent-cyan: #ff7597;    
+  --accent-gradient: linear-gradient(135deg, #ff9ebb 0%, #fda4af 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #ff7597 0%, #fda4af 100%);
+  --shadow-premium: 0 20px 45px rgba(255, 158, 187, 0.12);
+  --shadow-neon: 0 0 25px rgba(255, 158, 187, 0.22);
 }
 
 /* Reset & Base Styles */
@@ -57,37 +57,36 @@ body {
   position: relative;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.02) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(255, 158, 187, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(253, 164, 189, 0.04) 0%, transparent 40%);
 }
 
-/* Custom Premium Scrollbar */
+/* Custom scrollbar in pink */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { 
-  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-rose) 100%); 
+  background: var(--accent-gradient); 
   border-radius: 5px;
   border: 2px solid var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-gradient-hover); }
 
-/* Custom Cursor */
+/* Custom Cute Cursor */
 .custom-cursor {
   width: 24px;
   height: 24px;
-  border: 1.5px solid var(--text-primary);
+  border: 1.5px solid var(--accent-cyan);
   border-radius: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s, border-color 0.3s;
+  transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, border-color 0.3s;
 }
 
 .custom-cursor-dot {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background-color: var(--accent-cyan);
   border-radius: 50%;
   position: fixed;
@@ -98,9 +97,9 @@ body {
 }
 
 .custom-cursor.hovered {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.08);
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 158, 187, 0.12);
   border-color: var(--accent-rose);
 }
 
@@ -108,7 +107,7 @@ body {
   .custom-cursor, .custom-cursor-dot { display: none; }
 }
 
-/* Luxury Flowing Glow Orbs */
+/* Pink glow orbs */
 .glow-orb {
   position: fixed;
   border-radius: 50%;
@@ -120,21 +119,21 @@ body {
 
 .orb-1 {
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 158, 187, 0.22) 0%, transparent 70%);
   top: -150px; right: -150px;
   animation: orb-drift-1 22s infinite alternate ease-in-out;
 }
 
 .orb-2 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(253, 164, 189, 0.18) 0%, transparent 70%);
   bottom: 10%; left: -150px;
   animation: orb-drift-2 18s infinite alternate ease-in-out;
 }
 
 .orb-3 {
   width: 450px; height: 450px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(254, 205, 211, 0.15) 0%, transparent 70%);
   top: 45%; right: 5%;
   animation: orb-drift-3 15s infinite alternate ease-in-out;
 }
@@ -143,15 +142,15 @@ body {
 @keyframes orb-drift-2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(140px, -80px) scale(0.85); } }
 @keyframes orb-drift-3 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-100px, -100px) scale(1.15); } }
 
-/* Grid Overlay Background */
+/* Grid Overlay Background in Light Pink */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+    linear-gradient(rgba(255, 183, 197, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 183, 197, 0.04) 1px, transparent 1px);
   background-size: 80px 80px;
   z-index: -2;
   pointer-events: none;
@@ -189,7 +188,7 @@ body::before {
   border: 1px solid var(--border-glass);
   border-radius: 100px;
   padding: 14px 28px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 40px rgba(255, 158, 187, 0.1);
   transition: var(--transition-smooth);
 }
 
@@ -869,11 +868,11 @@ body::before {
 }
 
 .about-card {
-  background: #090910;
+  background: #2e2522;
   border: 1px solid var(--border-glass);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 45px rgba(255, 158, 187, 0.12);
 }
 
 .about-card-header {
@@ -1156,11 +1155,11 @@ body::before {
   top: -10px; left: 14px;
   font-size: 0.75rem;
   padding: 2px 10px;
-  background: #050508;
-  color: var(--accent-rose);
+  background: var(--bg-dark);
+  color: var(--accent-cyan);
   font-weight: 700;
   border-radius: 100px;
-  border: 1px solid rgba(236, 72, 153, 0.2);
+  border: 1px solid rgba(255, 117, 151, 0.2);
 }
 
 .form-status {
@@ -1182,7 +1181,7 @@ body::before {
 .footer {
   border-top: 1px solid var(--border-glass);
   padding: 80px 0 40px;
-  background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 18, 0.5) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 240, 235, 0.4) 100%);
 }
 
 .footer-container {
