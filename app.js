@@ -1,0 +1,121 @@
+// ====================================================================
+//  Abin Vinod — Portfolio Interactive Logic
+// ====================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ======= CUSTOM CURSOR =======
+  const cursor = document.getElementById('custom-cursor');
+  const cursorDot = document.getElementById('custom-cursor-dot');
+
+  if (cursor && cursorDot) {
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    });
+
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.12;
+      cursorY += (mouseY - cursorY) * 0.12;
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover states
+    const interactives = document.querySelectorAll('a, button, input, textarea, .magnetic, summary');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+  }
+
+  // ======= MAGNETIC BUTTONS =======
+  const magneticElements = document.querySelectorAll('.magnetic');
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // ======= SCROLL REVEAL =======
+  const revealElements = document.querySelectorAll('.reveal, .reveal-text');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger animation for grid children
+        const delay = entry.target.closest('.services-grid, .testimonials-grid, .results-bar, .blog-grid')
+          ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100
+          : 0;
+
+        setTimeout(() => {
+          entry.target.classList.add('active');
+        }, delay);
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Trigger hero reveals on load
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal-text').forEach((el, i) => {
+      setTimeout(() => el.classList.add('active'), i * 120);
+    });
+  }, 100);
+
+  // ======= CONTACT FORM =======
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        if (window.lucide) window.lucide.createIcons();
+
+        formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
+        formStatus.classList.add('success');
+
+        contactForm.reset();
+      }, 1500);
+    });
+  }
+
+  // ======= BACK TO TOP =======
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
