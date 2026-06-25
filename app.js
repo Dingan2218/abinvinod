@@ -205,5 +205,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 5000);
     }
   }
-});
 
+  // ======= MULTI-LAYER PARALLAX SCROLLING EFFECT =======
+  const parallaxBg = document.getElementById('parallax-bg');
+  const branchLeft = document.getElementById('parallax-branch-left');
+  const branchRight = document.getElementById('parallax-branch-right');
+
+  if (parallaxBg || branchLeft || branchRight) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      
+      // Move background slowly (parallax ratio: 0.08)
+      if (parallaxBg) {
+        parallaxBg.style.transform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
+      }
+      
+      // Move left branch faster in opposite direction (parallax ratio: -0.15)
+      if (branchLeft) {
+        branchLeft.style.transform = `translate3d(0, ${scrollY * -0.15}px, 0) rotate(${scrollY * 0.02}deg)`;
+      }
+      
+      // Move right branch slower in opposite direction (parallax ratio: -0.1)
+      if (branchRight) {
+        branchRight.style.transform = `translate3d(0, ${scrollY * -0.1}px, 0) rotate(${scrollY * -0.015}deg)`;
+      }
+    });
+  }
+});

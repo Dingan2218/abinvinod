@@ -56,11 +56,6 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background-image: url('assets/chinese_anime_garden.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 
 body::after {
@@ -68,9 +63,50 @@ body::after {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(255, 251, 249, 0.45); /* Soft dreamy cream tint to preserve high text readability */
+  background: rgba(255, 251, 249, 0.35); /* Dreamy cream tint overlay to ensure premium readability */
   z-index: -3;
   pointer-events: none;
+}
+
+/* Parallax Scrolling Wallpaper System */
+.parallax-wrapper {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -10%; left: -5%;
+  width: 110%; height: 120%;
+  background-image: url('assets/anime_street_wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.15s cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: transform;
+}
+
+.parallax-branch {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  opacity: 0.9;
+  transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: transform;
+}
+
+.parallax-branch.left {
+  top: -10px; left: -60px;
+  transform-origin: top left;
+}
+
+.parallax-branch.right {
+  bottom: 5%; right: -60px;
+  transform-origin: bottom right;
 }
 
 /* Custom scrollbar in pink */
