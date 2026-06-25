@@ -1555,20 +1555,20 @@ body::before {
   pointer-events: none;
   z-index: 99999;
   font-size: 1.5rem;
-  animation: fall-fade 1.8s linear forwards;
+  animation: fall-fade linear forwards;
 }
 
 @keyframes fall-fade {
   0% {
-    transform: translateY(0) rotate(0deg) scale(0.5);
+    transform: translateY(0) rotate(0deg) scale(0.4);
     opacity: 0;
   }
-  10% {
+  15% {
     opacity: 1;
-    transform: translateY(-10px) rotate(15deg) scale(1.1);
+    transform: translateY(-80px) rotate(45deg) scale(1.2); /* Pop up slightly */
   }
   100% {
-    transform: translateY(250px) rotate(180deg) scale(0.6);
+    transform: translateY(105vh) rotate(360deg) scale(0.5); /* Fall all the way down to bottom */
     opacity: 0;
   }
 }

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Spawn flower trail based on movement distance
       const dist = Math.hypot(mouseX - lastX, mouseY - lastY);
-      if (dist > 40) {
+      if (dist > 15) { // Spawn particle every 15 pixels of movement
         spawnTrailFlower(mouseX, mouseY);
         lastX = mouseX;
         lastY = mouseY;
@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     vibeToggle.addEventListener('click', (e) => {
-      // Create 15 cluster particles
+      // Create 35 cluster particles for a rich burst effect
       const rect = vibeToggle.getBoundingClientRect();
       const originX = rect.left + rect.width / 2;
       const originY = rect.top + rect.height / 2;
 
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 35; i++) {
         createParticle(originX, originY);
       }
     });
@@ -186,23 +186,23 @@ document.addEventListener('DOMContentLoaded', () => {
       particle.className = 'sparkle-particle';
       particle.innerHTML = flowerIllustrations[Math.floor(Math.random() * flowerIllustrations.length)];
       
-      // Calculate random offsets for spray effect
-      const offsetX = (Math.random() - 0.5) * 150;
-      const offsetY = (Math.random() - 0.5) * 50;
+      // Calculate wider random offsets for spray scatter effect
+      const offsetX = (Math.random() - 0.5) * 250;
+      const offsetY = (Math.random() - 0.5) * 80;
       
       particle.style.left = `${x + offsetX}px`;
       particle.style.top = `${y + offsetY}px`;
       
-      // Random animation variations
-      particle.style.animationDelay = `${Math.random() * 0.2}s`;
-      particle.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+      // Set longer animation variations so flowers fall all the way down
+      particle.style.animationDelay = `${Math.random() * 0.4}s`;
+      particle.style.animationDuration = `${2.5 + Math.random() * 1.5}s`;
       
       document.body.appendChild(particle);
       
-      // Remove element after animation completes
+      // Clean up after the fall animation finishes
       setTimeout(() => {
         particle.remove();
-      }, 2000);
+      }, 5000);
     }
   }
 });
