@@ -11,13 +11,40 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cursor && cursorDot) {
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
+    let lastX = 0, lastY = 0;
+    const flowerEmojis = ['🌸', '🌷', '🌺', '🌻', '🌼', '🏵️', '💮'];
 
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       cursorDot.style.left = `${mouseX}px`;
       cursorDot.style.top = `${mouseY}px`;
+
+      // Spawn flower trail based on movement distance
+      const dist = Math.hypot(mouseX - lastX, mouseY - lastY);
+      if (dist > 40) { // Spawn particle every 40 pixels of movement
+        spawnTrailFlower(mouseX, mouseY);
+        lastX = mouseX;
+        lastY = mouseY;
+      }
     });
+
+    function spawnTrailFlower(x, y) {
+      const flower = document.createElement('div');
+      flower.className = 'flower-trail-particle';
+      flower.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+      flower.style.left = `${x}px`;
+      flower.style.top = `${y}px`;
+      
+      // Add slight randomized animation variation
+      const randomRotate = (Math.random() - 0.5) * 60;
+      flower.style.setProperty('--random-rotate', `${randomRotate}deg`);
+      
+      document.body.appendChild(flower);
+      setTimeout(() => {
+        flower.remove();
+      }, 1000);
+    }
 
     function animateCursor() {
       cursorX += (mouseX - cursorX) * 0.12;

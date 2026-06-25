@@ -1575,3 +1575,29 @@ body::before {
   }
 }
 
+/* Responsive Flower mouse trail */
+.flower-trail-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  font-size: 1.2rem;
+  transform: translate(-50%, -50%);
+  animation: float-fade-flower 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes float-fade-flower {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.2) rotate(var(--random-rotate, 15deg));
+  }
+  100% {
+    transform: translate(-50%, -60px) scale(0.5) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+
