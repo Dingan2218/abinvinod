@@ -1,0 +1,30 @@
+# Abin Vinod — Portfolio & Digital Marketing Platform
+
+> Professional portfolio and digital marketing agency platform for Abin Vinod — Digital Marketer & SEO Expert in Kerala, India.
+
+## Project Metadata
+- **URL**: https://abinvinod.in
+- **GitHub**: https://github.com/Dingan2218/abinvinod
+- **Primary Tech Stack**: Native HTML5, CSS3 (Vanilla), ES6+ Vanilla JavaScript
+
+## Repository Structure & Entry Points
+
+- [index.html](file:///d:/abinvinod.in/index.html) - Main portfolio landing page. Features glassmorphic design, client schemas, dynamic custom cursor interface, and services summary.
+- [app.js](file:///d:/abinvinod.in/app.js) - Vanilla JavaScript application handling animations (magnetic effects, dual-dot cursor, scroll fade-in), sitemap references, and dynamic content.
+- [style.css](file:///d:/abinvinod.in/style.css) - Comprehensive global style sheets, design tokens, color palettes, responsive media queries, and utility classes.
+- [sitemap.xml](file:///d:/abinvinod.in/sitemap.xml) - SEO sitemap.
+- [robots.txt](file:///d:/abinvinod.in/robots.txt) - Crawler settings.
+- [404.html](file:///d:/abinvinod.in/404.html) - Custom 404 error page.
+
+## Directories
+
+- [blog/](file:///d:/abinvinod.in/blog) - Blogging section containing SEO guides and marketing advice.
+- [best_digital_marketer_kerala/](file:///d:/abinvinod.in/best_digital_marketer_kerala) - District-wise local SEO targeted landing pages for Kerala.
+- [best_seo-expert-kerala/](file:///d:/abinvinod.in/best_seo-expert-kerala) - Region-specific SEO landing pages.
+- [assets/](file:///d:/abinvinod.in/assets) - Graphic media, logos, and screenshots.
+
+## About the Author
+- **Name**: Abin Vinod
+- **Role**: Digital Marketer & SEO Expert
+- **Email**: hello@abinvinod.in
+- **LinkedIn**: https://linkedin.com/in/abinvinod

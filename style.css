@@ -1618,8 +1618,8 @@ body::after {
 }
 
 .cert-icon {
-  background: rgba(255, 117, 151, 0.1);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   width: 52px;
   height: 52px;
   border-radius: 16px;
@@ -1627,6 +1627,13 @@ body::after {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.cert-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
 
 .cert-info h3 {
