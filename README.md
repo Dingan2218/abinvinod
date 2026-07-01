@@ -84,8 +84,8 @@ Since this project is built entirely on native web technologies, there are no co
 
 **Abin Vinod**
 * **Website**: [abinvinod.in](https://abinvinod.in)
-* **Email**: [hello@abinvinod.in](mailto:hello@abinvinod.in)
-* **LinkedIn**: [linkedin.com/in/abinvinod](https://linkedin.com/in/abinvinod)
+* **Email**: [itsme@abinvinod.in](mailto:itsme@abinvinod.in)
+* **LinkedIn**: [linkedin.com/in/abinvinod-aby](https://www.linkedin.com/in/abinvinod-aby/)
 * **GitHub**: [github.com/Dingan2218](https://github.com/Dingan2218)
 
 ---

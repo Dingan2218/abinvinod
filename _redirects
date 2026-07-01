@@ -1,0 +1,2 @@
+# Netlify pretty URL standard fallback redirects
+/*.html  /:placeholder  301!

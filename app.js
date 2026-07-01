@@ -2,6 +2,22 @@
 //  Abin Vinod — Portfolio Interactive Logic
 // ====================================================================
 
+// Register Service Worker for Resilient Offline Fallback
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    const isSubDir = window.location.pathname.includes('/blog/') || 
+                     window.location.pathname.includes('/best_digital_marketer_kerala/') || 
+                     window.location.pathname.includes('/best_seo-expert-kerala/') ||
+                     window.location.href.includes('/blog/') ||
+                     window.location.href.includes('/best_digital_marketer_kerala/') ||
+                     window.location.href.includes('/best_seo-expert-kerala/');
+    const swPath = isSubDir ? '../sw.js' : './sw.js';
+    navigator.serviceWorker.register(swPath)
+      .then(reg => console.log('Service Worker registered successfully:', reg.scope))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // Detect if page is located in the blog directory to adjust relative path

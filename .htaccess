@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+# Force trailing slash removal
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Redirect legacy/canonical .html requests to clean URLs
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# Internal rewrite: match pretty URL requests to actual HTML files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
