@@ -20,7 +20,11 @@ def generate_sitemap():
         ".": 1.0,
         "blog": 0.8,
         "best_digital_marketer_kerala": 0.9,
-        "best_seo-expert-kerala": 0.9
+        "best_seo-expert-kerala": 0.9,
+        "business-consultant": 0.9,
+        "business-consultant/kochi": 0.9,
+        "business-consultant/alappuzha": 0.9,
+        "business-consultant/kerala": 0.9
     }
     
     for dir_path, default_priority in scan_dirs.items():
