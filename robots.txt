@@ -1,3 +1,35 @@
+# ==============================================================================
+# Abin Vinod — Digital Marketer & SEO Expert in Kerala
+# Domain: https://abinvinod.in
+# Sitemap: https://abinvinod.in/sitemap.xml
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /*?*
+
+# Allow search engines to crawl all CSS, JS, and image assets for full page rendering
+Allow: /style.css
+Allow: /app.js
+Allow: /assets/
+
+# Explicitly Allow AI & LLM Crawlers for Generative Engine Optimization (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap Index Reference & Host Declaration
 Sitemap: https://abinvinod.in/sitemap.xml
+Host: https://abinvinod.in
