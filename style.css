@@ -727,16 +727,16 @@ body::after {
 
 .deck-sticker {
   position: absolute;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 6px 14px;
+  color: var(--text-primary);
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.75rem;
-  font-family: var(--font-body);
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  font-size: 0.78rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(225, 29, 72, 0.1);
   animation: float-sticker 6s ease-in-out infinite alternate;
 }
 
