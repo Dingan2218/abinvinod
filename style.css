@@ -395,12 +395,8 @@ body::after {
 }
 
 .deck-logo span:first-child {
-<<<<<<< HEAD
-  background: linear-gradient(135deg, #fff 0%, #ffdada 100%);
-  background-clip: text;
-=======
   background: var(--accent-gradient);
->>>>>>> 7f095fa5877d1994c471ba819292569d487bf08c
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -601,15 +597,7 @@ body::after {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
-<<<<<<< HEAD
-  color: #fff;
-  background: var(--accent-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-=======
-  color: var(--text-primary);
->>>>>>> 7f095fa5877d1994c471ba819292569d487bf08c
+  color: var(--accent);
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -908,8 +896,8 @@ body::after {
 }
 
 .service-card {
-  background: var(--bg-glass);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border: 1px solid var(--border-glass);
   border-radius: 32px;
   padding: 44px 36px;
   backdrop-filter: blur(25px);
@@ -920,24 +908,24 @@ body::after {
               background 0.4s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 .service-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at top left, rgba(255, 117, 151, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at top left, rgba(225, 29, 72, 0.06) 0%, transparent 60%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .service-card:hover {
-  border-color: rgba(255, 117, 151, 0.3);
+  border-color: rgba(225, 29, 72, 0.3);
   transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(255, 117, 151, 0.08), 0 15px 30px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, rgba(36, 30, 29, 0.8) 0%, rgba(26, 21, 20, 0.8) 100%);
+  box-shadow: 0 20px 45px rgba(225, 29, 72, 0.12), 0 10px 20px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
 }
 
 .service-card:hover::before {
@@ -947,8 +935,8 @@ body::after {
 .service-icon {
   width: 64px;
   height: 64px;
-  background: rgba(255, 117, 151, 0.05);
-  border: 1px solid rgba(255, 117, 151, 0.15);
+  background: rgba(225, 29, 72, 0.06);
+  border: 1px solid rgba(225, 29, 72, 0.15);
   border-radius: 18px;
   display: flex;
   align-items: center;
@@ -972,14 +960,14 @@ body::after {
   color: #fff;
   border-color: transparent;
   transform: translateY(-6px) rotate(4deg);
-  box-shadow: 0 10px 25px rgba(255, 117, 151, 0.35);
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35);
 }
 
 .service-card h3 {
   font-family: var(--font-heading);
   font-size: 1.45rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 16px;
   line-height: 1.3;
   letter-spacing: -0.5px;
@@ -1001,7 +989,7 @@ body::after {
 }
 
 .service-features li {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   padding: 4px 0;
   display: flex;
@@ -1012,19 +1000,19 @@ body::after {
 
 .service-features li::before {
   content: '✓';
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-weight: 800;
   font-size: 0.85rem;
   transition: transform 0.3s ease;
 }
 
 .service-card:hover .service-features li {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .service-features li:hover {
   transform: translateX(4px);
-  color: #fff;
+  color: var(--accent);
 }
 
 .service-features li:hover::before {
@@ -1276,8 +1264,8 @@ body::after {
 .timeline-content:hover {
   border-color: var(--border-glass-active);
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(255, 117, 151, 0.08), 0 15px 30px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, rgba(36, 30, 29, 0.8) 0%, rgba(26, 21, 20, 0.8) 100%);
+  box-shadow: 0 20px 45px rgba(225, 29, 72, 0.1);
+  background: #ffffff;
 }
 
 .timeline-header {
@@ -1299,7 +1287,7 @@ body::after {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.3;
   margin-bottom: 6px;
 }
@@ -1648,7 +1636,7 @@ body::after {
 
 .cert-info h3 {
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 6px;
   line-height: 1.3;
@@ -2336,7 +2324,7 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.98rem;
