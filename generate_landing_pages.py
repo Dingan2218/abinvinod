@@ -177,7 +177,7 @@ GA4_SCRIPT = """<!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y586J4M1L8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    def gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y586J4M1L8');
   </script>"""
