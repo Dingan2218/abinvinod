@@ -37,8 +37,8 @@ This platform is engineered for blazing-fast performance, premium aesthetics, an
 ```text
 abinvinod.in/
 ├── assets/                          # Images, screenshots, project mockups, and logos
-├── best_digital_marketer_kerala/    # Hyper-local SEO pages for all 14 Kerala districts
-├── best_seo-expert-kerala/          # SEO expert regional landing pages
+├── best_digital_marketer_[district].html# Digital marketer district pages
+├── best_seo_expert_[district].html  # SEO expert regional landing pages
 ├── blog/                            # Blog articles, guides, and blog homepage
 ├── 404.html                         # Custom high-converting 404 error page
 ├── index.html                       # Main portfolio landing page

@@ -7,10 +7,8 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     const isSubDir = window.location.pathname.includes('/blog/') || 
                      window.location.pathname.includes('/best_digital_marketer_kerala/') || 
-                     window.location.pathname.includes('/best_seo-expert-kerala/') ||
                      window.location.href.includes('/blog/') ||
-                     window.location.href.includes('/best_digital_marketer_kerala/') ||
-                     window.location.href.includes('/best_seo-expert-kerala/');
+                     window.location.href.includes('/best_digital_marketer_kerala/');
     const swPath = isSubDir ? '../sw.js' : './sw.js';
     navigator.serviceWorker.register(swPath)
       .then(reg => console.log('Service Worker registered successfully:', reg.scope))

@@ -204,7 +204,7 @@ TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="{asset_rel_prefix}style.css">
 
   {ga4_script}
 
@@ -389,7 +389,7 @@ TEMPLATE = """<!DOCTYPE html>
         <a href="/#work" class="nav-link magnetic">Work</a>
         <a href="/#about" class="nav-link magnetic">About</a>
         <a href="/blog" class="nav-link magnetic">Blog</a>
-        <a href="/{other_category_dir}" class="nav-link magnetic" style="color: var(--accent-cyan)">{other_category_nav}</a>
+        <a href="/locations/" class="nav-link magnetic" style="color: var(--accent-cyan)">{other_category_nav}</a>
         <a href="/#contact" class="nav-link magnetic">Contact</a>
       </nav>
       <div class="hire-badge">
@@ -404,7 +404,7 @@ TEMPLATE = """<!DOCTYPE html>
     <section class="local-hero">
       <div class="container">
         <div class="breadcrumb">
-          <a href="/">Home</a> / <a href="./">Districts</a> / <span>{district_name}</span>
+          <a href="/">Home</a> / <a href="/locations/">Districts</a> / <span>{district_name}</span>
         </div>
         <span class="section-tag">{district_upper} DISTRICT EDITION</span>
         <h1 class="section-title" style="margin-top: 15px;">
@@ -413,7 +413,7 @@ TEMPLATE = """<!DOCTYPE html>
         <p class="section-subtitle">{hero_subtitle}</p>
         <div style="margin-top: 40px; display: flex; gap: 20px;">
           <a href="#contact" class="btn btn-primary magnetic">Free Consultation</a>
-          <a href="./" class="btn btn-secondary magnetic">All Districts</a>
+          <a href="/locations/" class="btn btn-secondary magnetic">All Districts</a>
         </div>
       </div>
     </section>
@@ -545,7 +545,7 @@ TEMPLATE = """<!DOCTYPE html>
         <h3>Other {mesh_heading}</h3>
         <ul class="dist-list">
           {mesh_links}
-          <li><a href="./" class="magnetic" style="border-color: var(--accent); color: var(--accent);">View All Districts</a></li>
+          <li><a href="/locations/" class="magnetic" style="border-color: var(--accent); color: var(--accent);">View All Districts</a></li>
         </ul>
       </div>
     </section>
@@ -566,17 +566,13 @@ TEMPLATE = """<!DOCTYPE html>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
-  <script src="../app.js"></script>
+  <script src="{asset_rel_prefix}app.js"></script>
 </body>
 </html>"""
 
 def generate_pages():
     for cat in ["digital_marketer", "seo_expert"]:
-        dir_name = "best_digital_marketer_kerala" if cat == "digital_marketer" else "best_seo-expert-kerala"
-        
-        # Ensure directories exist
-        if not os.path.exists(dir_name):
-            os.makedirs(dir_name)
+        dir_name = "."
             
         for dist in districts:
             dist_id = dist["id"]
@@ -585,6 +581,10 @@ def generate_pages():
             
             # Setup specific values depending on the category
             if cat == "digital_marketer":
+                page_slug = f"best_digital_marketer_{dist_id}"
+                canonical_url = f"https://abinvinod.in/{page_slug}"
+                asset_rel_prefix = ""
+                
                 meta_title = f"Best Digital Marketer in {dist_name} | Top SEO Expert in {dist_name} — Abin Vinod"
                 meta_desc = f"Scale organic traffic and rank #1 with the best SEO expert and digital marketer in {dist_name}. Abin Vinod provides high-ROI search engine optimization, Google Ads, and digital marketing strategies customized for {dist_name} brands."
                 meta_keywords = f"best digital marketer in {dist_name}, best SEO expert in {dist_name}, digital marketing expert {dist_name}, SEO specialist {dist_name}, SEO expert {dist_name}, digital marketing {dist.get('alias', dist_name)}, Abin Vinod"
@@ -603,13 +603,19 @@ def generate_pages():
                 hero_h1 = f"THE BEST<br>\n          <span class=\"gradient-text\">SEO EXPERT</span> &amp;<br>\n          DIGITAL MARKETER IN {dist_upper}"
                 hero_subtitle = f"Scale your revenue with the best SEO expert and digital marketer in {dist.get('alias', dist_name)}. Advanced SEO, link building, and performance ads {dist['subtitle_suffix']}"
                 
-                other_category_dir = "best_digital_marketer_kerala"
-                other_category_nav = "Districts"
+                other_category_dir = "best_digital_marketer"
+                other_category_nav = "Digital Marketer"
                 
                 mesh_heading = "SEO & Marketing Hubs in Kerala"
                 footer_tagline = "Best Digital Marketer & SEO Expert in Kerala — SEO, Ads & Growth"
+                
+                file_path = f"{page_slug}.html"
             else:
                 # SEO Expert specific
+                page_slug = f"best_seo_expert_{dist_id}"
+                canonical_url = f"https://abinvinod.in/{page_slug}"
+                asset_rel_prefix = ""
+                
                 meta_title = f"Best SEO Expert in {dist_name} | Top Search Specialist in {dist_name} — Abin Vinod"
                 meta_desc = f"Scale organic traffic and rank #1 with the best SEO expert in {dist_name}. Abin Vinod provides high-ROI search engine optimization, Google Ads, and digital marketing strategies customized for {dist_name} brands."
                 meta_keywords = f"best SEO expert in {dist_name}, best digital marketer in {dist_name}, SEO expert {dist_name}, SEO specialist {dist_name}, digital marketing {dist.get('alias', dist_name)}, Abin Vinod"
@@ -628,13 +634,13 @@ def generate_pages():
                 hero_h1 = f"THE BEST<br>\n          <span class=\"gradient-text\">SEO EXPERT</span> IN {dist_upper}"
                 hero_subtitle = f"Get more bookings with the best SEO expert and digital marketer in {dist.get('alias', dist_name)}. Custom search marketing {dist['subtitle_suffix']}"
                 
-                other_category_dir = "best_seo-expert-kerala"
+                other_category_dir = "best_seo_expert"
                 other_category_nav = "SEO Expert"
                 
                 mesh_heading = "SEO Expert Hubs in Kerala"
                 footer_tagline = "Best SEO Expert in Kerala — SEO, Ads & Growth"
-
-            canonical_url = f"https://abinvinod.in/{dir_name}/{dist_id}"
+                
+                file_path = f"{page_slug}.html"
             
             # Mesh links generation (excluding current district, picking next 6 in rotation for pretty footer grid)
             curr_index = districts.index(dist)
@@ -642,7 +648,8 @@ def generate_pages():
             for i in range(1, 7):
                 idx = (curr_index + i) % len(districts)
                 target_dist = districts[idx]
-                mesh_list.append(f'<li><a href="{target_dist["id"]}" class="magnetic">{target_dist["name"]}</a></li>')
+                target_href = f"best_digital_marketer_{target_dist['id']}" if cat == "digital_marketer" else f"best_seo_expert_{target_dist['id']}"
+                mesh_list.append(f'<li><a href="/{target_href}" class="magnetic">{target_dist["name"]}</a></li>')
             mesh_links = "".join(mesh_list)
             
             # Format template
@@ -672,11 +679,11 @@ def generate_pages():
                 marketing_desc=dist["marketing_desc"],
                 mesh_heading=mesh_heading,
                 mesh_links=mesh_links,
-                footer_tagline=footer_tagline
+                footer_tagline=footer_tagline,
+                asset_rel_prefix=asset_rel_prefix
             )
             
             # Write file
-            file_path = os.path.join(dir_name, f"{dist_id}.html")
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html_content)
                 
@@ -684,3 +691,4 @@ def generate_pages():
 
 if __name__ == "__main__":
     generate_pages()
+

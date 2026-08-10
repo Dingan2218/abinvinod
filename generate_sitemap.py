@@ -26,8 +26,7 @@ def get_url_info(rel_path):
     top_level_hubs = {
         'about', 'services', 'portfolio', 'case-studies', 'pricing', 
         'contact', 'faq', 'blog', 'locations', 'tools', 'industries', 
-        'testimonials', 'best_digital_marketer_kerala', 
-        'best_seo-expert-kerala', 'business-consultant'
+        'testimonials', 'best_digital_marketer_kerala', 'business-consultant'
     }
     
     parts = clean_path.split('/')
