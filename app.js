@@ -167,12 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 100);
 
-  // ======= CONTACT FORM =======
+  // ======= CONTACT FORM (Web3Forms API Integration) =======
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
   if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -183,16 +183,41 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.textContent = '';
       formStatus.className = 'form-status';
 
-      setTimeout(() => {
+      const formData = new FormData(contactForm);
+
+      // Ensure Web3Forms access key is included
+      if (!formData.has('access_key')) {
+        formData.append('access_key', '26beb97b-0f76-46ba-a6ef-7bbf9fd002c3');
+      }
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         if (window.lucide) window.lucide.createIcons();
 
-        formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
-        formStatus.classList.add('success');
-
-        contactForm.reset();
-      }, 1500);
+        if (result.success) {
+          formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
+          formStatus.classList.add('success');
+          contactForm.reset();
+        } else {
+          formStatus.textContent = `❌ ${result.message || 'Something went wrong. Please try again.'}`;
+          formStatus.classList.add('error');
+        }
+      } catch (err) {
+        console.error('Web3Forms submission error:', err);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        if (window.lucide) window.lucide.createIcons();
+        formStatus.textContent = '❌ Submission error. Please check your connection and try again.';
+        formStatus.classList.add('error');
+      }
     });
   }
 
