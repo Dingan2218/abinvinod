@@ -8,15 +8,15 @@
 
 /* Root Variables - Immersive Dark Cinematic Vibe */
 :root {
-  /* Crisp Professional White Theme */
+  /* Crisp Professional Light Theme */
   --bg-dark: #ffffff;      
   --bg-dark-accent: #f8fafc;
   
-  /* Modern Clean Glassmorphism & Cards */
-  --bg-glass: rgba(255, 255, 255, 0.9);
-  --bg-glass-hover: #ffffff;
-  --border-glass: rgba(226, 232, 240, 0.9);
-  --border-glass-active: rgba(235, 74, 115, 0.4);
+  /* Modern Clean Light Glassmorphism & Cards */
+  --bg-glass: #ffffff;
+  --bg-glass-hover: #f8fafc;
+  --border-glass: #e2e8f0;
+  --border-glass-active: rgba(225, 29, 72, 0.4);
   --text-primary: #0f172a;   
   --text-secondary: #334155; 
   --text-muted: #64748b;
@@ -56,6 +56,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  background-color: var(--bg-dark);
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(255, 158, 187, 0.04) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(253, 164, 189, 0.04) 0%, transparent 40%);
@@ -908,7 +909,7 @@ body::after {
               background 0.4s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .service-card::before {
@@ -922,7 +923,7 @@ body::after {
 }
 
 .service-card:hover {
-  border-color: rgba(225, 29, 72, 0.3);
+  border-color: rgba(225, 29, 72, 0.4);
   transform: translateY(-10px);
   box-shadow: 0 20px 45px rgba(225, 29, 72, 0.12), 0 10px 20px rgba(0, 0, 0, 0.04);
   background: #ffffff;
